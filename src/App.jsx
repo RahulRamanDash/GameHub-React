@@ -78,14 +78,12 @@ function App() {
     },
   ];
 
-  // Extract unique categories from the games array
   const getCategories = (games) => {
     const categories = new Set(games.map(game => game.category));
     return ["All", ...categories];
   };
 
   const categories = getCategories(games);
-  // const categories = ["All", "Battle Royale", "Action-Adventure", "Racing"]; // Example categories
 
   const filteredGames = games.filter((game) => {
     const matchesSearch = game.name.toLowerCase().includes(searchTerm.toLowerCase());
@@ -98,30 +96,29 @@ function App() {
     <>
       <Navbar />
       <div className="p-4">
-        {/* Search Bar */}
-<div className="mb-4 flex flex-wrap gap-4 justify-center">
-  {/* Search Bar */}
-  <input
-    type="text"
-    placeholder="Search by name"
-    value={searchTerm}
-    onChange={(e) => setSearchTerm(e.target.value)}
-    className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-  />
-  
-  {/* Category Filter */}
-  <select
-    value={selectedCategory}
-    onChange={(e) => setSelectedCategory(e.target.value)}
-    className="w-full sm:w-1/4 md:w-auto lg:w-auto px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-  >
-    {categories.map((category) => (
-      <option key={category} value={category}>
-        {category}
-      </option>
-    ))}
-  </select>
-</div>
+        <div className="mb-4 flex flex-wrap gap-4 justify-center">
+          {/* Search Bar */}
+          <input
+            type="text"
+            placeholder="Search by name"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+
+          {/* Category Filter */}
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="w-full sm:w-1/4 md:w-auto lg:w-auto px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
 
 
 
